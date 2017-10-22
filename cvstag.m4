@@ -26,16 +26,20 @@
 # NOTE: if [] characters are required in the regexp pattern
 # then they must be quoted ([[ ]]).
 #
-m4_define(TILLAC_CVSTAG,
+m4_define([TILLAC_CVSTAG],
 	[m4_if(
 		_TILLAC_CVSTAG($1,[$2]),
 		,
 		[untagged],
 		_TILLAC_CVSTAG($1,[$2]))]dnl
 )
-m4_define(_TILLAC_CVSTAG,
+m4_define([_TILLAC_CVSTAG],
 	[m4_bregexp(
 		[$1],
 		\([[$]]Name:[[ ]]*\)\($2\)\([[^ ]]*\)\([[ ]]*[[^$]]*\)[[$]],
 		\3)]dnl
 )
+
+
+# Git-tag (note that this is (statically) inserted at autoconf time
+m4_define([TILLAC_GITTAG], m4_esyscmd_s([git describe --always]))
