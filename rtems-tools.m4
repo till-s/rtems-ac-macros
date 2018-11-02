@@ -8,6 +8,7 @@ AC_DEFUN([TILLAC_RTEMS_CHECK_TOOLS],
 	 if TILLAC_RTEMS_NOT_CONFIG_TOP; then : ; else
 	   CC="$SHELL $srcdir/dummycxx"
 	   CXX="$SHELL $srcdir/dummycxx"
+	   LD="$SHELL $srcdir/dummycxx"
 	 fi
 	 AC_PROG_CC
 	 AC_PROG_CXX
