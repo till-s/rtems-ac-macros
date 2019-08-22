@@ -42,4 +42,4 @@ m4_define([_TILLAC_CVSTAG],
 
 
 # Git-tag (note that this is (statically) inserted at autoconf time
-m4_define([TILLAC_GITTAG], m4_esyscmd_s([git describe --always]))
+m4_define([TILLAC_GITTAG], m4_esyscmd_s([git describe --always --dirty]))
