@@ -146,8 +146,8 @@ AC_DEFUN([TILLAC_RTEMS_EXPORT_MAKEVARS],
 		fi
 # evaluate tillac_rtems_cppflags, tillac_rtems_ldflags in case
 # they gave a quoted shell variable on the commandline
-		tillac_rtems_cppflags=`eval echo "$tillac_rtems_cppflags"`
-		tillac_rtems_ldflags=`eval echo "$tillac_rtems_ldflags"`
+		tillac_rtems_cppflags=`eval echo "$tillac_rtems_cppflags $TILLAC_RTEMS_CPPFLAGS"`
+		tillac_rtems_ldflags=`eval echo "$tillac_rtems_ldflags $TILLAC_RTEMS_LDFLAGS"`
 #export forged CC & friends so that they are used by sub-configures, too
 		export CC="$CC $tillac_rtems_gccspecs $tillac_rtems_cpu_cflags $tillac_rtems_cppflags"
 		export CXX="$CXX $tillac_rtems_gccspecs $tillac_rtems_cpu_cflags $tillac_rtems_cppflags"
