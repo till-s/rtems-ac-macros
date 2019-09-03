@@ -45,7 +45,15 @@ AC_DEFUN([TILLAC_RTEMS_OPTIONS],
 	else
 		AC_MSG_NOTICE([SUPERPACKAGE_NAME was set: ${SUPERPACKAGE_NAME}, leaving alone])
 	fi
-    export SUPERPACKAGE_NAME
+	export SUPERPACKAGE_NAME
+	AC_ARG_VAR([SUPERPACKAGE_VERSION],[Version of a collection of packages])
+	if test -z "${SUPERPACKAGE_VERSION}" ; then
+		AC_MSG_NOTICE([SUPERPACKAGE_VERSION was empty, overriding with PACKAGE_VERSION: ${PACKAGE_VERSION}])
+		SUPERPACKAGE_VERSION="${PACKAGE_VERSION}"
+	else
+		AC_MSG_NOTICE([SUPERPACKAGE_VERSION was set: ${SUPERPACKAGE_VERSION}, leaving alone])
+	fi
+	export SUPERPACKAGE_VERSION
 	AC_ARG_WITH(package-subdir,
 		AC_HELP_STRING([--with-package-subdir=<path-fragment>],
 			[defines part of the default exec-prefix:
